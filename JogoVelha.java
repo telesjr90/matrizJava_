@@ -9,9 +9,9 @@ public class JogoVelha {
 	private ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
 	
 	private String solicitarJogada() {
-		for (int i = 0; i < matriz.size(); i++ ) {
-			System.out.println(matriz.get(i));
-		}
+		imprimeMatriz();
+		
+	}
 		
 		return scanner.nextLine();
 	}
@@ -48,7 +48,10 @@ public class JogoVelha {
 			}
 			vezJogador1 = !vezJogador1;
 		}
-		if (!houveVencedor)
+		if (!houveVencedor) {
+		imprimeMatriz();
+		System.out.println("Nao houve vencedor");
+		}
 
 }
 	private Boolean verificarVencedor() {
