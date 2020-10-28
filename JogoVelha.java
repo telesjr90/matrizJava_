@@ -7,11 +7,14 @@ import java.util.Scanner;
 public class JogoVelha {
 	private Scanner scanner = new Scanner(System.in);
 	private ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
-	
-	private String solicitarJogada() {
+	private void imprimeMatriz() {
 		for (int i = 0; i < matriz.size(); i++ ) {
 			System.out.println(matriz.get(i));
-		}
+	}
+	}
+	
+	private String solicitarJogada() {
+		imprimeMatriz();
 		
 		return scanner.nextLine();
 	}
@@ -42,13 +45,17 @@ public class JogoVelha {
 				matriz.get(linha).set(coluna, "O");
 			}
 			if (verificarVencedor()) {
+				houveVencedor = true;
 				String vencedor = vezJogador1 ? "1" : "2";
 				System.out.println("O jogador " + vencedor + " venceu!");
 				break;
 			}
 			vezJogador1 = !vezJogador1;
 		}
-		if (!houveVencedor)
+		if (!houveVencedor) {
+			imprimeMatriz();
+			System.out.println("Nao houve vencedor");
+		}
 
 }
 	private Boolean verificarVencedor() {
